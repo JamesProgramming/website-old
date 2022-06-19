@@ -1,0 +1,126 @@
+// For email
+.show-internet-mail {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-pure-white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+
+    display: grid;
+    grid-template-rows: 2fr 3fr 10rem;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.4);
+    transition: all .3s;
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        width: 5.8rem;
+        height: 5.8rem;
+
+        svg {
+            position: relative;
+            margin-bottom: 0;
+            display: block;
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+    }
+
+    & p {
+        font-size: 2.2rem;
+        font-family: $heading-font;
+        letter-spacing: .1rem;
+
+        & svg {
+            fill: var(--color-black);
+            position: relative;
+            top: .15rem;
+            margin: 0 .2rem;
+            height: 2rem;
+            width: 2rem;
+            display: inline-block;
+            margin-bottom: 0;
+        }
+    }
+
+    & img {
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &--active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+
+.hi-there {
+    
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0 !important;
+    padding-bottom: var(--section-space);
+
+    &__text {
+        background-image: linear-gradient(to right bottom, #FFF600, #D8CB00);
+        padding: 3rem 6.5rem;
+        margin: auto;
+        text-transform: uppercase;
+        font-size: 5.7rem;
+        font-weight: 600;
+        border-radius: $radius;
+        transform: skewX(-10deg);
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+
+        p  {
+            color: var(--color-black);
+            transform: skewX(10deg);
+        }
+    }
+
+    .body--dark-mode & {
+        &__text {
+            opacity: .9;
+
+            p {
+                color: var(--color-pure-white);
+            }
+        }
+    }
+
+    &__img {
+        width: 100%;
+
+        @include respond($small) {
+            justify-self: center;
+            width: 75%;
+        }
+    }
+
+    img.hi-there__img {
+        display: none;
+    }
+
+    @media (prefers-reduced-motion) {
+        object.hi-there__img {
+            display: none
+        }
+        img.hi-there__img {
+            display: block;
+        }
+    }
+
+}

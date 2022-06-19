@@ -1,0 +1,22 @@
+// For 404 page
+
+.four-o-four {
+    display: grid;
+    grid-row-gap: 2rem;
+    align-items: center;
+    align-content: start;
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, var(--color-pure-white), var(--color-gray-light));
+    height: 100vh;
+
+    &__svg {
+        max-width: 50vh;
+        margin: 3rem auto 0;
+        display: inline-block;
+        filter: drop-shadow(var(--shadow));
+
+        @include respond($small) {
+            width: 80%;
+        }
+    }
+}

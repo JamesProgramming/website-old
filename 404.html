@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="James Coolidge ePortfolio, James Coolidge, Web developer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/favicon.ico" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="style.css" rel="stylesheet" />
+    <script src="index.js" type="module" defer></script>
+    <title>404 page not found</title>
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="navigation__logo-box">
+        <a class="has-tool-tip" href="/index.html" title="James Coolidge">
+          <svg class="logo-svg dark-mode-svg">
+            <use xlink:href="/img/svg/sprite.svg#icon-logo"></use></svg
+        ></a>
+      </div>
+      <nav class="navigation__link-box">
+        <ul class="navigation__links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/education.html">Education</a></li>
+
+          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <button class="dark-mode has-tool-tip" title="Dark mode">
+              <svg class="icon">
+                <use xlink:href="/img/svg/sprite.svg#icon-moon"></use>
+              </svg>
+              <svg class="display-none">
+                <use href="/img/svg/sprite.svg#icon-sun"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <!-- Phone and small screen width devices-->
+
+      <div class="navigation__phone-menu navigation__phone">
+        <p class="navigation__page-name navigation__phone" title="current page">
+          Home
+        </p>
+        <button class="navigation__button navigation__phone" title="menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+      </div>
+      <div class="navigation__cover navigation__phone"></div>
+    </div>
+
+    <main class="main four-o-four">
+      <h1 class="heading-1 center">404</h1>
+      <p class="paragraph paragraph--center center">
+        Sorry, the page wasn't found
+      </p>
+      <object
+        class="four-o-four__svg"
+        type="image/svg+xml"
+        data="/img/svg/404-animated.svg"
+      ></object>
+    </main>
+  </body>
+</html>

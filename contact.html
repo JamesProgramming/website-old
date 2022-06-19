@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="James Coolidge ePortfolio, James Coolidge, Web developer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="James Coolidge ePortfolio, James Coolidge, Web developer">
+    <link href="/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="style.css" rel="stylesheet" />
+    <script src="index.js" type="module" defer></script>
+    <title>James Coolidge / contact</title>
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="navigation__logo-box">
+        <a class="has-tool-tip" href="/index.html" title="James Coolidge">
+          <svg class="logo-svg dark-mode-svg">
+            <use xlink:href="/img/svg/sprite.svg#icon-logo"></use></svg
+        ></a>
+      </div>
+      <nav class="navigation__link-box">
+        <ul class="navigation__links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/education.html">Education</a></li>
+
+          <li class="navigation__current"><a href="/contact.html">Contact</a></li>
+          <li>
+            <button class="dark-mode has-tool-tip" title="Dark mode">
+              <svg class="icon">
+                <use xlink:href="/img/svg/sprite.svg#icon-moon"></use>
+              </svg>
+              <svg class="display-none">
+                <use href="/img/svg/sprite.svg#icon-sun"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="navigation__phone-menu navigation__phone">
+        <p class="navigation__page-name navigation__phone" title="current page">
+          Contact
+        </p>
+        <button class="navigation__button navigation__phone" title="menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+      </div>
+      <div class="navigation__cover navigation__phone"></div>
+    </div>
+
+    <header class="header max-content-width">
+      <div
+        class="header__container header__container--padding background background--dark"
+      >
+      <svg class="icon">
+        <use xlink:href="/img/svg/sprite.svg#icon-handshake-circle"></use>
+      </svg>
+        <h1 class="heading-1 hide">Contact</h1>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="cards">
+        <div class="max-content-width">
+          <h2 class="heading-2">Get in touch</h2>
+          <p class="paragraph">
+            I am interested in either a part-time or internship role as a 
+            web developer or in a computer science related field. Check 
+            out my contact information below for more details.
+          </p>
+          <div class="cards__container">
+            <div class="cards__card">
+              <svg class="icon">
+                <use xlink:href="/img/svg/sprite.svg#icon-linkedin"></use>
+              </svg>
+              <h3 class="heading-3">LinkedIn</h3>
+              <p class="cards__card-paragraph">
+                This is my preferred method of contact and another great resource to learn more about me.  
+              </p>
+              <a href="https://www.linkedin.com/in/james-coolidge-web" class="a-button"
+                ><button class="button"><span>LinkedIn</span></button></a
+              >
+            </div>
+            <div class="cards__card">
+              <svg class="icon">
+                <use xlink:href="/img/svg/sprite.svg#icon-email"></use>
+              </svg>
+              <h3 class="heading-3">Email</h3>
+              <p class="cards__card-paragraph">
+                Do not have a linked account or prefer a different contact method? Click below to get my email.
+              </p>
+              <a href="#" class="a-button"
+                ><button class="button" id="internet-contact"><span>Email</span></button></a
+              >
+              <div class="show-internet-mail">
+                <button id="internet-contact-close" class="button button--narrow button-no-margin button--x show-internet-mail__button">
+                  <svg>
+                    <use xlink:href="/img/svg/sprite.svg#icon-close-outline"></use>
+                  </svg>
+              </button>
+              <p class="paragraph--center">
+                
+              </p>
+              </div>
+            </div>
+            <div class="cards__card">
+              <svg class="icon">
+                <use xlink:href="/img/svg/sprite.svg#icon-location"></use>
+              </svg>
+              <h3 class="heading-3">Location</h3>
+              <p class="cards__card-paragraph">
+                I live in Mason County, Washington, next to the great Olympic Mountain range.       
+              </p>
+              <a href="#" id="map" class="a-button"
+                ><button class="button"><span>Map</span></button></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="hi-there background">
+        <h2 class="heading-2">Hi there</h2>
+        <div class="paragraph paragraph--center">
+          I am a developer the loves ...
+        </div>
+        <div class="hi-there__text"><p>Yellow</p></div>
+        <object class="hi-there__img" type="image/svg+xml" data="/img/svg/hi-there-animation.svg"></object>
+        <img class="hi-there__img" src="/img/svg/hi-there-animation.svg" alt="Man waving his hand" />
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__text max-content-width">
+          <nav class="footer__nav">
+            <h4 class="heading-4">Website</h4>
+            <ul class="footer__nav-list">
+              <li>
+                <a href="/index.html"><span>Home</span></a>
+              </li>
+              <li>
+                <a href="/education.html"><span>Education</span></a>
+              </li>
+
+              <li>
+                <a href="/contact.html"><span>Contact</span></a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__source-code">
+            <h4 class="heading-4">Source Code</h4>
+            <p class="footer__source-code-text">
+              What to see the code behind this website?
+            </p>
+            <p class="footer__source-code-text">
+              Go to my github
+              <a
+                class="button--inline"
+                href="https://github.com/JamesProgramming/website"
+                >website</a
+              >
+              repository to view all the source code for this site.
+            </p>
+          </div>
+          <div class="footer__about">
+            <h4 class="heading-4">About</h4>
+            <p class="footer__about-text">
+              This page was designed and coded by James Coolidge &copy;2021.
+            </p>
+            <p class="footer__about-text">
+              The purpose of this website is to display the owners skills in web
+              development and programming.
+            </p>
+          </div>
+          <div class="footer__credit">
+            <h4 class="heading-4">Credit</h4>
+            <ul class="footer__credit-list">
+              <li>
+                Large svg (man waving his hand) made by
+                <a class="button--inline" href="https://undraw.co/illustrations">undraw</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__contact max-content-width">
+          <a href="/contact.html" title="email" class="has-tool-tip"
+            ><svg class="icon">
+              <use xlink:href="/img/svg/sprite.svg#icon-email"></use></svg
+          ></a>
+          <a href="/contact.html" title="linkedin" class="has-tool-tip"
+            ><svg class="icon">
+              <use xlink:href="/img/svg/sprite.svg#icon-linkedin"></use></svg
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="map">
+      <button
+        class="button button--narrow button-no-margin button--x map__button"
+      >
+        <svg>
+          <use xlink:href="/img/svg/sprite.svg#icon-close-outline"></use>
+        </svg>
+      </button>
+      <iframe
+        frameborder="0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <button title="Go to top" class="to-top has-tool-tip">
+      <div class="to-top__arrow ">
+        <svg>
+          <use xlink:href="/img/svg/sprite.svg#icon-right-arrow"></use>
+        </svg>
+      </div>
+    </button>
+    </div>
+  </body>
+</html>

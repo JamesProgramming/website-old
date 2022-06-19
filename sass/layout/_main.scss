@@ -1,0 +1,14 @@
+// Page main content
+.main {
+    max-width: 190rem;
+    padding: 0 5rem;
+    margin: auto;
+
+    @include respond($mid-small) {
+        padding: .5rem;
+    }
+
+    @include respond($tiny) {
+        padding: 0rem;
+    }
+}

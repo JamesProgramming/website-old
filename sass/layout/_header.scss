@@ -1,0 +1,31 @@
+// Page main header (except home)
+.header {
+    margin: 24rem auto 14rem auto;
+
+    @include respond($small) {
+        margin: 15rem auto 10rem auto;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12rem 0;
+    }
+
+    &__container svg {
+        width: 7.1rem;
+        height: 7.1rem;
+        margin-right: 1rem;
+        fill: var(--color-secondary);
+        color: var(--color-secondary);
+    }
+
+    & * {
+        position: relative;
+    }
+
+    & h1 {
+        padding: 0;
+    }
+}

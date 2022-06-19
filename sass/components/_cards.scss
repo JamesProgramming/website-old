@@ -1,0 +1,94 @@
+
+.cards {
+    padding-bottom: var(--section-space);
+
+    // cards holder
+    &__container {
+        display: grid;
+        margin-top: 7rem;
+        grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+        grid-column-gap: 7rem;
+        font-family: $reading-font;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        background-color: var(--color-pure-white);
+        box-shadow: var(--shadow);
+        border-radius: $radius;
+        padding: 3.7rem 4.1rem;
+        overflow: hidden;
+
+        .body--dark-mode &-night-mode-hide {
+            display: none;
+        }
+    }
+
+    &__card-paragraph {
+        text-align: center;
+        padding: 1.8rem 0 4rem 0;
+        line-height: 1.5;
+        font-size: 1.7rem;
+        margin-bottom: auto;
+    }
+
+    // Card elements for night mode
+    &__card-night-mode {
+        display: none;
+
+        .body--dark-mode & {
+            display: block;
+        }
+    }
+
+    // Card svg
+    &__card > svg {
+        width: 9rem;
+        height: 9rem;
+        margin-bottom: 1.8rem;
+        stroke: #444343;
+        stroke-width: 0;
+        fill: #444343;
+
+        .body--dark-mode & {
+            filter: invert(80%);
+        }
+
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        //background-color: blue;
+    }
+
+    // When svg come into view
+    & &__svg--active {
+        animation: toNormal 2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@include respond($large) {
+    .cards {
+        padding-bottom: var(--section-space);
+    
+        // cards holder
+        &__container {
+            grid-gap: 5rem;
+        }
+   
+        & svg {
+            width: 7rem;
+            height: 7rem;
+        }
+    }
+}
+
+@include respond($small) {
+    .cards {
+        &__container {
+            margin-top: 5rem;
+        }
+    }
+}

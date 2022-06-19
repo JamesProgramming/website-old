@@ -1,0 +1,50 @@
+//page load animation
+@keyframes page {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+// Animations for home page webpage svgs
+@keyframes webpageHome1 {
+    0% {transform: translateX(-20rem); opacity: 0;}
+    15% {transform: translateX(-20rem); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+@keyframes webpageHome2 {
+    0% {transform: translateX(-20rem); opacity: 0;}
+    25% {transform: translateX(-20rem); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+@keyframes webpageHome3 {
+    0% {transform: translateX(-20rem); opacity: 0;}
+    35% {transform: translateX(-20rem); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+// Animation for dark mode button
+@keyframes circle-svg {
+    0% {stroke-dashoffset: 85; }
+    100% {stroke-dashoffset: -85; }
+}
+
+
+// Animation for light mode button
+@keyframes rotate-svg {
+    0% {transform: rotate(0); }
+    100% {transform: rotate(360deg); }
+}
+
+// Make svg stroke lines visible
+@keyframes toNormal {
+    0% {stroke-dashoffset: 100;}
+    100% {stroke-dashoffset: 0;}
+}
+
+// For writing text on screen animation
+@keyframes cursor {
+    0% {background-color: transparent;}
+    50% {background-color: transparent;}
+    51% {background-color: var(--color-black-light);}
+}

@@ -1,0 +1,430 @@
+// website navigation bar
+
+%navigation-boxes {
+    background-color: var(--color-pure-white);
+    border-radius: $radius;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 2rem;
+    margin: 2rem 0;
+    overflow: hidden;
+    filter: drop-shadow(var(--shadow));
+    transition: all .3s;
+    z-index: 20000;
+
+    // navigation logo icon (left side)
+    &__logo-box {
+        @extend %navigation-boxes;
+        flex: 0 1 10rem;
+
+        & a:link, & a:visited {
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        & svg {
+            display: block;
+            width: 50%;
+            height: 50%;
+            filter: drop-shadow(var(--shadow-small)) drop-shadow(var(--shadow));
+            transition: all .2s;
+        }
+
+        &:hover {
+            svg {
+               transform: scale(1.03);
+            }
+        }
+
+        & a:active, & a:focus svg {
+            transform: scale(.97);
+        }
+    }
+
+    // navigation links (right side)
+    &__link-box {
+        @extend %navigation-boxes;
+        padding: .8rem 2rem;
+        position: relative;
+    }
+
+    &__links {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+        height: 100%;
+
+        & a:link, & a:visited {
+            height: 100%;
+            outline: none;
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+            line-height: 1;
+            padding: 0 3.5rem;
+            font-size: 2.3rem;
+            color: var(--color-secondary);
+            position: relative;
+            z-index: 4;
+            transition: all .2s;
+        }
+
+        & a:focus, & a:active {
+            outline: none;
+            transform: scale(.97);
+        }
+
+
+        // hover effect for links
+        & li {
+            position: relative;
+        }
+
+        & li:not(:last-of-type)::before {
+            display: block;
+            content: "";
+            background-color: var(--color-white);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            border-radius: $radius;
+            opacity: .2;
+            transform: scale(0);
+            transition: all $background-hover-popin;
+            @media (prefers-reduced-motion) {
+                transition: all 0s;
+            }
+        }
+
+
+        & li:hover::before {
+            transform: scale(1);
+            opacity: 1;
+        } 
+
+
+        // night mode button
+        & button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            height: 100%;
+            outline: none;
+            position: relative;
+            z-index: 2;
+
+
+            &:hover svg {
+                animation: circle-svg 4s linear infinite;
+                @media (prefers-reduced-motion) {
+                    animation: none;
+                }
+             }
+                
+            .body--dark-mode &:hover svg {
+                animation: rotate-svg 32s linear infinite;
+                @media (prefers-reduced-motion) {
+                    animation: none;
+                }
+            }
+
+        }
+
+        & svg {
+            display: block;
+            width: 4.3rem;
+            height: 4.3rem;
+            margin: 0 3rem;
+            transform: scale(.97);
+            transition: all .2s;
+            stroke-width: 3;
+            fill: var(--color-black-light);
+            stroke: rgba(2, 112, 255, 0.356);
+            stroke-dasharray: 85;
+            stroke-dashoffset: 85;
+        }
+
+        .body--dark-mode & svg {
+            stroke: rgba(255, 217, 2, 0.192);
+            fill: var(--color-secondary);
+        }
+        
+        & button:hover {
+            svg {
+                filter: brightness(90%) drop-shadow(var(--shadow));
+                transform: scale(1);
+            }
+        }
+
+        & button:active {
+            svg {
+                filter: brightness(90%) drop-shadow(var(--shadow));
+                transform: scale(.95);
+            }
+        }
+    }
+
+    // current page link
+    &__current::after {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        bottom: .8rem;
+        left: 0;
+        border-radius: $radius-small;
+        content: "";
+        height: .7rem;
+        width: 70%;
+        margin: 0 15%;
+        transition: all .2s;
+        background-color: var(--color-secondary);
+    }
+
+
+    // NAVIGATION ACTIVE ---
+    &--active {
+        background-color: var(--color-pure-white);
+        margin: 0;
+        padding: 0;
+        height: 7rem;
+
+        .navigation {
+
+            &__logo-box {
+
+                svg {
+                    width: 59%;
+                    height: 59%;
+                }
+            }
+
+            &__link-box {
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+
+                svg {
+                    width: 3rem;
+                    margin: 0 2rem;
+                }
+            }
+
+            // current page
+            &__current::after {
+                border-radius: .5rem .5rem 0 0;
+                bottom: -.2rem;
+            }
+
+            // link hover animation
+            &__link-box li:hover::before {
+                transform: scale(.87);
+            } 
+        }
+    } 
+
+    // Phone nav
+    &__phone {
+        display: none;
+    }
+}
+
+@include respond($large) {
+    .navigation {
+        background-color: var(--color-pure-white);
+        margin: 0;
+        padding: 2rem;
+        height: 7rem;
+        align-items: center;
+        overflow: visible;
+    
+        // navigation logo icon (left side)
+        &__logo-box {   
+            flex: 0 1 9rem;
+            background-color: transparent;
+    
+            & a:link, & a:visited {
+                justify-content: start;
+
+            }
+
+            svg {
+                width: 5rem;
+                height: 5rem;
+            }
+
+        }
+    
+        // navigation links (right side)
+        &__link-box { 
+            position: fixed;
+            top: 0;
+            right: 0; 
+            transform: translateX(100%);  
+            padding: .8rem 2rem;
+            visibility: hidden;
+            transition: all .3s;
+            border-radius: $radius 0 0 $radius;
+            display: block;
+            box-shadow: var(--shadow);
+            height: 100vh;
+            width: 50%;
+            z-index: 51000;
+        }
+    
+        &__links {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            height: 100%;
+        }
+
+        // ipad and phone menu active
+        &__link-box--active {
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        &__link-box &__links {
+            display: grid;
+            grid-template-rows: repeat(5, 8rem);
+            align-content: center;
+            align-items: center;
+            justify-content: start;
+
+            & li::before {
+                display: none;
+            }
+
+            & li:last-of-type {
+                left: 2.5rem;
+            }
+
+            & li:last-of-type button::after {
+                position: absolute;
+                content: attr(title);
+                top: calc(50% - 1.3rem);
+                right: -8rem;
+                font-size: 1.9rem;
+                font-family: $heading-font;
+                color: var(--color-secondary);
+            }
+
+            svg {    
+                width: 4rem;
+                height: 4rem;
+                margin: 1rem 1rem;
+            }
+        }
+
+        &__current::after {
+            top: -40%;
+            left: -2.5rem;
+            border-radius: $radius-small;
+            height: 180%;
+            width: .7rem;
+
+        }
+
+        // Element to cover hole page (almost transparent)
+        &__cover--active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--color-black);
+            z-index: 50000;
+            opacity: .1;
+            transition: all .3s;
+            visibility: visible;
+        }
+    
+        // hamburger button
+        &__button {
+            z-index: 51003;
+            border: none;
+            background-color: transparent;
+            display: grid;
+            align-items: center;
+            align-content: space-between;
+            width: 3.5rem;
+            height: 3.5rem;
+
+            & > * {
+                width: 100%;
+                height: .5rem;
+                background-color: var(--color-black);
+                transition: all .3s;
+                border-radius: $radius-large;
+
+            }
+        }
+        &__button--active {
+
+            & div:first-of-type {
+                transform-origin: left;
+                transform: rotate(45deg) scaleX(1.215);
+            }
+
+            & div:nth-of-type(2) {
+                opacity: 0;
+            }
+
+            & div:last-of-type {
+                transform-origin: left;
+                transform: rotate(-45deg) scaleX(1.215);
+            }
+        }
+
+        // Container for phone hamburger and current page name
+        &__phone-menu {
+            display: grid;
+            grid-template-columns: 1fr min-content;
+            grid-column-gap: 1.3rem;
+            justify-items: end;
+            align-items: center;
+        }
+
+        // Current page name
+        &__page-name {
+            display: block;
+            font-size: 1.9rem;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+    }
+}
+
+@include respond($small-large) {
+    .navigation {
+
+        &__links a:link {
+            font-size: 2.7rem;
+        }
+
+        &__link-box { 
+            width: 80%;
+        }
+    }
+}

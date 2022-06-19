@@ -1,0 +1,90 @@
+// Helper (utility) classes
+
+
+// gray background color for page sections
+.background {
+    background-color: var(--color-white);
+    border-radius: $radius-large;
+
+    padding: var(--section-space) 0;
+    margin-top: var(--section-space);
+
+    &--dark {
+        background-color: var(--color-white-dark);
+    }
+}
+
+// max-width for page content
+.max-content-width {
+    max-width: 140rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin: auto;
+
+    @include respond($small) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    @include respond($tiny) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+// Center text
+body .center {
+    text-align: center;
+}
+
+// button inside of an 'a' elements
+.a-button {
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    outline: none;
+    flex-direction: column;
+}
+
+// Place content after element to new line
+.break::after {
+    content: "";
+    display: block;
+}
+
+// For cursor animation
+body .cursor::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: .4rem;
+    position: absolute;
+    right: -.3rem;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-black-light);
+    border-radius: .2rem;
+}
+
+.cursor--flash::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: .4rem;
+    position: absolute;
+    right: -.3rem;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-black-light);
+    border-radius: .2rem;
+    animation: cursor .9s infinite linear;
+}
+
+.hide {
+    opacity: 0.2;
+}
+
+// Set display to none (parcel with not remove it because the style attr is set to 'none') 
+.display-none {
+    display: none;
+}

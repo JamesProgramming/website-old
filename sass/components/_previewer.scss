@@ -1,0 +1,168 @@
+// In-site image previewer
+.previewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-pure-white);
+    
+    width: 100%;
+    height: 100vh;
+    z-index: 50000;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.4);
+    transition: all .3s;
+
+    display: grid;
+    grid-template-rows: 5.7rem 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    // Previwer nav bar
+    &__heading {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        height: 5.7rem;
+        align-items: center;
+        box-shadow: var(--shadow);
+        justify-content: center;
+        background-color: var(--color-pure-white);
+
+        @include respond($mid-small) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__title {
+        padding-left: 2rem;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    // Zooming controller
+    &__zooming {
+        justify-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        @include respond($mid-small) {
+            display: none;
+        }
+    }
+
+    // Zooming buttons
+    &__zooming-in, &__zooming-out {
+        background-color: transparent;
+        border: none;
+        color: var(--color-secondary);
+        margin: 0 1.3rem;
+        padding: .5rem;
+        border-radius: $radius-large;
+        display: inline-block;
+
+        svg {
+            margin: .5rem;
+            display: block;
+            width: 2.3rem;
+            height: 2.3rem;
+        }
+    }
+
+    &__zooming-in:hover , &__zooming-out:hover {
+        background-color: var(--color-white-dark);
+    }
+
+    &__zooming-in:active , &__zooming-out:active {
+        & svg {
+            transform: scale(.95);
+        }
+    }
+
+    // Zoom level input box
+    &__zoom-level {
+        text-align: center;
+        font-family: inherit;
+        border: .3rem solid transparent;
+        border-radius: .7rem;
+        outline: none;
+        height: 3rem;
+        width: 8rem;
+        padding: .7rem .7rem .7rem .14rem;
+        font-weight: 500;
+        font-size: 1.7rem;
+        position: relative;
+        z-index: 500;
+        background-color: rgba(#E1E1E1, .3);
+        letter-spacing: .1rem;
+    }
+
+    &__zoom-level:focus {
+        outline: .3rem solid var(--color-gray);
+        outline-offset: .3rem;
+    }
+
+    // Percentage letter
+    &__zoom-level-percent {
+        z-index: 200;
+        position: absolute;
+        left: 52.3%;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+
+    // Close button
+    &__close {
+        justify-self: end;
+        align-self: center;
+        position: relative;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0 2rem;
+
+        svg {
+            display: block;
+
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+
+    // Scroll box holding the image container
+    &__holder {
+        padding-bottom: 5rem;
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        width: 100%;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        z-index: -1;
+    }
+
+    // Image holder
+    &__zoomer {
+        transition: all .2s;
+    }
+
+    // images
+    &__img {
+        margin-top: 3rem;
+        width: 100%;
+        display: block;
+        box-shadow: var(--shadow-big);
+    }
+
+    // Previewer visible
+    &--active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}

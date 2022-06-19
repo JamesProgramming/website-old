@@ -1,0 +1,70 @@
+// (On home page)
+.wide-card {
+    margin: var(--section-space) auto 0;
+
+    &__card {
+        background-image: linear-gradient(to bottom right, var(--color-secondary-card-dark), var(--color-secondary-card-light));
+        padding: 11rem;
+        margin-top: 7rem;
+        border-radius: $radius-large;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        
+        a {
+            display: flex;
+            justify-self: end;
+            text-decoration: none;
+            justify-content: end;
+            // remove margin from the button
+            & > * {
+                margin: 0;
+                padding-left:7rem;
+                padding-right: 7rem;
+                align-self: center;
+            }
+        }
+
+    }
+
+    & &__text {
+        color: var(--color-pure-white);
+    }
+}
+
+@include respond($large) {
+    .wide-card {
+        &__card {
+            padding: 10rem 8rem;    
+            a {
+                padding-left: 2rem;
+            }
+        }
+    }
+}
+
+@include respond($small-large) {
+    .wide-card {
+        &__card {
+            grid-gap: 3.5rem;
+            grid-template-columns: 1fr;
+
+            a {
+                padding-top: 1rem;
+                padding-left: 0;
+
+                justify-self: center;
+            }
+        }
+
+    }
+}
+
+@include respond($small) {
+    .wide-card {
+        &__card {
+            margin-top: 5rem;
+            padding: 7rem 3rem;
+        }
+    }
+}

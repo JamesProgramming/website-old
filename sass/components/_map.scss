@@ -1,0 +1,70 @@
+// Map on contact page
+
+.map {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-pure-white);
+    @supports (backdrop-filter: blur(2rem)) {
+        background-color:transparent;
+        backdrop-filter: blur(.5rem);
+    }
+    z-index: 50000;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.4);
+    transition: all .3s;
+
+    @include respond($small-small) {
+        padding: .5rem;
+    }
+
+    // Close button
+    &__button {
+        position: fixed;
+        top: 4.7rem;
+        right: 3.1rem;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 5.8rem;
+        height: 5.8rem;
+
+        @include respond($small-small) {
+            top: 3.4rem;
+            right: 2.2rem;
+        }
+
+        margin: 0 2rem;
+
+        svg {
+            display: block;
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+    }
+
+    // Iframed map
+    & iframe {
+        background-color: var(--color-pure-white);
+        border-radius: $radius-small;
+        width: 100%;
+        height: 100%;
+        border: 1.2rem solid var(--color-black);
+
+        @include respond($small-small) {
+            border-width: .8rem;
+        }
+    }
+
+    // Make visible
+    &--active {
+        visibility: visible;
+        transform: scale(1);
+        opacity: 1;
+    }
+}

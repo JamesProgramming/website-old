@@ -1,0 +1,36 @@
+.paragraph {
+    font-family: $reading-font;
+    font-size: 1.8rem;
+    line-height: 1.5;
+
+    // default layout
+    max-width: 55%;
+
+    @include respond($large) {
+        max-width: 72%;
+    }
+
+    @include respond($small) {
+        max-width: 100%;
+    }
+}
+
+.paragraph--center {
+    margin: auto;
+
+    @include respond($small) {
+        text-align: left;
+    }
+}
+
+.paragraph--wide {
+    max-width: 80%;
+
+    @include respond($small) {
+        max-width: 100%;
+    }
+}
+
+.paragraph--max {
+    max-width: 100%;
+}

@@ -1,0 +1,125 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root {
+    --color-primary-dark: #D8CB00;
+    --color-primary:#FFF600;
+    --color-primary-light:#FFF724;
+    
+    --color-secondary:#0A4BFF;
+    --color-secondary-dark: #0B0EDF;
+    
+    --color-black-dark: #2A2A2A;
+    --color-black: #3b3b3b;
+    --color-black-light:#484848;
+    
+    --color-gray-dark:#707070;
+    --color-gray:  #D3D3D3;
+    --color-gray-light:  #E1E1E1;
+    
+    --color-white-dark: #f0f0f0;
+    --color-white: #F9F9F9;
+    --color-pure-white: #fff;
+
+    // primary color with opacity 01 = .1, 10 = 1
+    --color-primary-opacity-05: #fdff90;
+
+    // colors for wide-card component
+    --color-secondary-card-dark: #2C6ECB;
+    --color-secondary-card-light: #69A3FF;
+
+     // white color with opacity 01 = .1, 10 = 1
+     --color-white-opacity-05:#ffffff9a;
+     --color-white-opacity-03:#ffffff55;
+
+     // gray color with opacity 01 = .1, 10 = 1
+     --color-gray-opacity-02: #D3D3D323;
+
+     // section spacing
+     --section-space: 14rem;
+
+     // shadows
+    --shadow-big: 0 1rem 4rem rgba(42, 42, 42, .3);
+    --shadow:  0 0 2rem rgba(42, 42, 42, .2);
+    --shadow-small:  0 0 .5rem rgba(42, 42, 42, .4);
+    --shadow-light:  0 0 2rem rgba(42, 42, 42, .1);
+
+    // Color green for check mark on tiles
+    --color-green: #18cc24;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    background-position: center;
+    background-size: 200%;
+
+    @include respond($mid) {
+        font-size: 50%;
+    }
+
+    @include respond($tiny) {
+        font-size: 48%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: $heading-font;
+    color: var(--color-black-dark); 
+    animation: page 1s; 
+    //background-color: var(--color-pure-white);
+
+    @include respond($small) {
+        --section-space: 10rem;
+    }
+
+}
+
+// Dark mode colors
+.body--dark-mode {
+    background-color: #212121;
+
+    --color-primary-dark: #D8CB00;
+    --color-primary:#262cd8;
+    --color-primary-light:#2c30a0;
+    
+    --color-secondary:#d1a426;
+    --color-secondary-dark: #0B0EDF;
+    
+    --color-black-dark: #cccccc;
+    --color-black: #b4b4b4;
+    --color-black-light:#a6a6a6;
+    
+    --color-gray-dark:#707070;
+    --color-gray: #454545;
+    --color-gray-light:  #3f3f3f;
+    
+    --color-white-dark: #303030;
+    --color-white: #2a2a2a;
+    --color-pure-white: #272727;
+
+    // primary color with opacity 01 = .1, 10 = 1
+    --color-primary-opacity-05: #272673;
+
+    // colors for wide-card component
+    --color-secondary-card-dark: #b78948;
+    --color-secondary-card-light: #926828;
+
+    // shadows
+    --shadow-big: 0 1rem 4rem rgba(0, 0, 0, .5);
+    --shadow:  0 0 2rem rgba(0, 0, 0, .5);
+    --shadow-small:  0 0 .5rem rgba(0, 0, 0, .4);
+    --shadow-light:  0 0 2rem rgba(0, 0, 0, .3);
+}
+
+*::selection {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}

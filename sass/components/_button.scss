@@ -1,0 +1,259 @@
+.button {
+    & {
+        overflow: hidden;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        text-align: center;
+        position: relative;
+        padding: 2rem;
+        background-color: var(--color-secondary);
+        border-radius: $radius-large;
+        margin-top: auto;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        letter-spacing: .1rem;
+        font-family: $heading-font;
+        box-shadow: var(--shadow);
+        font-weight: 500;
+        font-size: 2.2rem;
+        color: var(--color-gray-light);
+        transition: all .2s;
+        align-self: stretch;
+        z-index: 20;
+
+        & > * {
+            position: relative;
+            z-index: 2000;
+        }
+
+        @media (prefers-reduced-motion) {
+            transform: scale(1) !important;
+            transition: none;
+        }
+    }
+    
+    &:hover {
+        color: var(--color-white);
+        transform: scale(1.01);
+    }
+    
+    &:active, &:focus {
+        transform: scale(0.98);
+        outline: none;
+    }
+    
+    &::before {
+        content: "";
+        display: block;
+        background-image: radial-gradient(#ffffff32, #ffffff11);
+        height: 7rem;
+        width: 7rem;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0%;
+        right: calc(50% - 3.5rem);
+        opacity: 0;
+        transform: scale(1);
+        transition: all .2s;
+    }
+    
+    &::after {
+        content: "";
+        display: block;
+        background-image: radial-gradient(#ffffff22, transparent);
+        position: absolute;
+        right: -110%;
+        top: -150%;
+        border-radius: 50%;
+        transition: all .4s;
+        height: 370%;
+        width: 110%;
+    }
+    
+    &:hover::after {
+        transform: translate(-100%, 1rem);
+        @media (prefers-reduced-motion) {
+            transform: none;
+        }
+    }
+
+    &:active svg {
+        transform: rotate(90deg) translateX(.5rem);
+    }
+    
+    &:active::before {
+        transform: scale(5);
+        opacity: 1;
+        @media (prefers-reduced-motion) {
+            opacity: 0;
+            transform: none;
+        }
+    }
+
+    // Inline with text buttons 
+    &--inline {
+        &:link, &:visited {
+            color: var(--color-secondary);
+        }
+
+        &:hover, &:active {
+            color: var(--color-secondary);
+        }
+    }
+
+    // Lage gray button on wide card
+    &--gray-large {
+        font-size: 2.4rem;
+        color: var(--color-black);
+        background-color: var(--color-gray-light);
+        padding: 2.7rem;
+
+        &:hover {
+            color: var(--color-black-dark);
+        }
+
+        &::after {
+            background-image: radial-gradient(#ffffff55, #ffffff11);
+        }
+
+        &::after {
+            .body--dark-mode & {
+                background-image: radial-gradient(#ffffff13, #ffffff01);
+            }
+        }
+
+        &::before {
+            .body--dark-mode & {
+                background-image: radial-gradient(#ffffff13, #ffffff01);
+            }
+        }
+    }
+
+    // Button with down arrow
+    &--down-arrow {
+        display: flex;
+        align-items: center;
+        padding-left: 3rem;
+        padding-right: 3rem;
+
+        & > *:not(svg) {
+            padding:0 1rem;
+        }
+
+        & svg {
+            transition: all .2s;
+            position: relative;
+            z-index: 200;
+            width: 3rem;
+            height: 2.3rem;
+            transform: rotate(90deg);
+        }
+    }
+
+    // Underline button
+    &--underline {
+        overflow: visible;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        color: var(--color-black);
+        text-decoration: none;
+        font-size: 1.8rem;
+
+        & span {
+            display: block;
+            height: .5rem;
+            width: 100%;
+            margin-top: .3rem;
+            background-color: var(--color-gray);
+            transition: all .2s;
+            border-radius: $radius;
+        }
+
+        &::before, &::after {
+            display: none;
+        }
+
+        &:hover {
+            color: var(--color-black-dark);
+
+            & span {
+                transform: translateY(.1rem);
+            }
+        }
+    }
+
+    // Narrow button
+    &--narrow {
+        padding: 1.3rem 2rem;
+        font-size: 1.7rem;
+    }
+
+    // Button with plus symbal
+    &--plus {
+        display: flex;
+        padding: .8rem 2rem;
+        align-items: center;
+        font-size: 1.8rem;
+
+        span {
+            transform: translateX(.9rem);
+        }
+    }
+
+    // buttons with no magins
+    &--no-margin {
+        margin: 0;
+    }
+
+    // Outlined buttons
+    &--outline {
+        background-color: transparent;
+        font-weight: 500;
+        color: var(--color-black-light);
+        border: solid .3rem var(--color-gray);
+        box-shadow: none;
+        padding: 1rem 2rem;
+
+        &::after, &::before {
+            display: none;
+        }
+
+        &:hover {
+            color: var(--color-black);
+            //box-shadow: var(--shadow);
+            filter: drop-shadow(var(--shadow));
+        }
+    }
+
+
+    // Close button 
+    &--x {
+        display: block;
+        padding: 0;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    &--x:active svg {
+        transform: none;
+    }
+
+    // Hidden button
+    &--hidden {
+        cursor: not-allowed;
+        opacity: .3;
+        visibility: hidden;
+
+        &:hover {
+            transform: none;
+        }
+
+        &:active {
+            transform: none;
+        }
+    }
+}
